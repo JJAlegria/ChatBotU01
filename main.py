@@ -66,7 +66,7 @@ REGLAS DE COMPORTAMIENTO:
     -<palabras clave> respuesta: aqui va la respuesta, se comporta como un arbol mediante la identacion
                     <palabra clave> respuesta por palabra clave
                     
-6. El formato de salida es solo el texto, no tomes en cuenta el formato, construlle tu respuesta deacuerdo a las palabras claves y posibles respuestas. 
+6. El formato de salida es solo el texto, no tomes en cuenta el formato, construye tu respuesta deacuerdo a las palabras claves, no uses <> incorporalas en la respuesta y posibles respuestas. 
 BASE DE CONOCIMIENTO:
 {BASE_DE_CONOCIMIENTO}
 """
