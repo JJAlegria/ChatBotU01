@@ -104,30 +104,108 @@ async def serve_web_ui():
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Chatbot Asistente Virtual</title>
+        <title>Asistente Virtual - Unicauca</title>
         <style>
             * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-            body { background-color: #f4f6f9; display: flex; justify-content: center; align-items: center; height: 100vh; }
-            .chat-container { width: 100%; max-width: 450px; height: 600px; background: white; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); display: flex; flex-direction: column; overflow: hidden; }
-            .chat-header { background: #2b579a; color: white; padding: 15px; text-align: center; font-weight: bold; }
-            .chat-box { flex: 1; padding: 15px; overflow-y: auto; display: flex; flex-direction: column; gap: 10px; }
-            .message { padding: 10px 14px; border-radius: 18px; max-width: 80%; font-size: 14px; line-height: 1.4; word-wrap: break-word; }
-            .user { background: #0078d4; color: white; align-self: flex-end; border-bottom-right-radius: 2px; }
-            .bot { background: #e9ecef; color: #333; align-self: flex-start; border-bottom-left-radius: 2px; }
-            .input-area { display: flex; padding: 12px; border-top: 1px solid #ddd; background: #fff; }
-            .input-area input { flex: 1; padding: 10px; border: 1px solid #ccc; border-radius: 20px; outline: none; }
-            .input-area button { margin-left: 8px; padding: 10px 18px; background: #0078d4; color: white; border: none; border-radius: 20px; cursor: pointer; font-weight: bold; }
-            .input-area button:hover { background: #005a9e; }
+            body { background-color: #f0f2f5; display: flex; justify-content: center; align-items: center; height: 100vh; }
+            
+            /* Contenedor más compacto (380px x 520px) */
+            .chat-container { 
+                width: 100%; 
+                max-width: 380px; 
+                height: 520px; 
+                background: white; 
+                border-radius: 12px; 
+                box-shadow: 0 4px 20px rgba(0,0,0,0.15); 
+                display: flex; 
+                flex-direction: column; 
+                overflow: hidden; 
+                border: 1px solid #e0e0e0;
+            }
+            
+            /* Encabezado con colores institucionales (Azul y Rojo Unicauca) */
+            .chat-header { 
+                background: linear-gradient(135deg, #0D2C54 0%, #8A151B 100%); 
+                color: white; 
+                padding: 12px 15px; 
+                display: flex; 
+                align-items: center; 
+                gap: 12px;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            }
+
+            /* Espacio y contenedor para el Logo */
+            .chat-header img {
+                height: 38px;
+                width: auto;
+                background: white;
+                padding: 3px 6px;
+                border-radius: 4px;
+                object-fit: contain;
+            }
+
+            .header-title {
+                display: flex;
+                flex-direction: column;
+                text-align: left;
+            }
+
+            .header-title h1 {
+                font-size: 15px;
+                font-weight: 600;
+                line-height: 1.2;
+            }
+
+            .header-title span {
+                font-size: 11px;
+                opacity: 0.85;
+            }
+
+            .chat-box { flex: 1; padding: 12px; overflow-y: auto; display: flex; flex-direction: column; gap: 8px; background-color: #fafafa; }
+            .message { padding: 9px 13px; border-radius: 16px; max-width: 82%; font-size: 13px; line-height: 1.4; word-wrap: break-word; }
+            
+            /* Burbuja Usuario: Rojo Unicauca */
+            .user { background: #8A151B; color: white; align-self: flex-end; border-bottom-right-radius: 3px; }
+            
+            /* Burbuja Bot: Azul tenue */
+            .bot { background: #eef2f7; color: #1a2530; align-self: flex-start; border-bottom-left-radius: 3px; border: 1px solid #e1e8f0; }
+            
+            .input-area { display: flex; padding: 10px; border-top: 1px solid #e6e6e6; background: #fff; gap: 6px; }
+            .input-area input { flex: 1; padding: 8px 14px; border: 1px solid #ccc; border-radius: 18px; outline: none; font-size: 13px; }
+            .input-area input:focus { border-color: #0D2C54; }
+            
+            /* Botón Enviar: Azul Unicauca con hover a Rojo */
+            .input-area button { 
+                padding: 8px 15px; 
+                background: #0D2C54; 
+                color: white; 
+                border: none; 
+                border-radius: 18px; 
+                cursor: pointer; 
+                font-weight: 600; 
+                font-size: 13px;
+                transition: background 0.2s;
+            }
+            .input-area button:hover { background: #8A151B; }
         </style>
     </head>
     <body>
         <div class="chat-container">
-            <div class="chat-header">Asistente Virtual</div>
-            <div class="chat-box" id="chatBox">
-                <div class="message bot">¡Hola! ¿En qué puedo ayudarte hoy?</div>
+            <div class="chat-header">
+                <!-- LOGO DE LA UNIVERSIDAD DEL CAUCA -->
+                <img src="https://www.unicauca.edu.co/versionP/sites/default/files/Unicauca_logo.png" alt="Logo Unicauca" onerror="this.src='https://via.placeholder.com/80x35/ffffff/0d2c54?text=UNICAUCA'">
+                <div class="header-title">
+                    <h1>Asistente Unicauca</h1>
+                    <span>Atención al Usuario</span>
+                </div>
             </div>
+            
+            <div class="chat-box" id="chatBox">
+                <div class="message bot">¡Hola! Bienvenido al asistente virtual de la Universidad del Cauca. ¿En qué puedo ayudarte hoy?</div>
+            </div>
+            
             <div class="input-area">
-                <input type="text" id="userInput" placeholder="Escribe tu mensaje aquí..." onkeypress="handleKeyPress(event)">
+                <input type="text" id="userInput" placeholder="Escribe tu mensaje..." onkeypress="handleKeyPress(event)">
                 <button onclick="sendMessage()">Enviar</button>
             </div>
         </div>
@@ -140,12 +218,12 @@ async def serve_web_ui():
 
                 if (!text) return;
 
-                // Agregar mensaje usuario
+                // Agregar mensaje del usuario
                 chatBox.innerHTML += `<div class="message user">${text}</div>`;
                 input.value = '';
                 chatBox.scrollTop = chatBox.scrollHeight;
 
-                // Loader bot
+                // Indicador de "Escribiendo..."
                 const loadingDiv = document.createElement('div');
                 loadingDiv.className = 'message bot';
                 loadingDiv.innerText = 'Escribiendo...';
