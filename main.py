@@ -26,34 +26,46 @@ app.add_middleware(
 
 # 3. Base de Conocimiento y Prompt de Sistema
 BASE_DE_CONOCIMIENTO = """
-- Pregunta: ¿Cuáles son los horarios de atención?
+- Pregunta: ¿Cuáles son los horarios de atención? <hora, abrir>
   Respuesta: Atendemos de lunes a viernes de 8:00 AM a 6:00 PM.
 
-- Pregunta: ¿Dónde están ubicados?
+- Pregunta: ¿Dónde están ubicados? <lugar, estan, encontrar, ubicar, localizar>
   Respuesta: Estamos ubicados en Cl 5 #4-70, Centro, Popayán.
 
-- Pregunta: ¿Donde puede tramitar el carnet de universitario?
+- Pregunta: ¿Donde puede tramitar el carnet de universitario? <sacar, obtener, verificar>
   Respuesta: En DARCA, ubicado en Carrera 2 # 3N – 127, Popayán, Cauca Facultad de Educación
 
-- Pregunta: ¿Que materias puedo ver si estudio licenciatura en matematicas, o matematicas?
-  Contra pregunta: ¿En que semestre estas?
-  Respuesta: primer semestre (1)- matematica generales, etc
-segundo semestre (2)- Calculo I, Algebra lineal etc
-tercer semestre (3)- Calculo II, etc
-cuarto semestre (4)- GRupos, etc
-quinto semestre (5)-Anillos, etc
-sexto semestre (6)- Analisis Real, etc
-
+- Pregunta: ¿Que materias puedo ver el siguiente semestre? <matricular, etudiar>
+  Contra pregunta: ¿Que carrera estudias?
+  Contra pregunta: ¿Que semestre estas cursando?
+  Respuesta: <matematicas> En matematicas puedes matricular
+                 <primer, 1> matematica generales, etc
+                 <segundo, 2> Calculo I, Algebra lineal etc
+                 <tercer, 3>  Calculo II, programcion basica.
+             <Licenciatura matematica> En licenciatura en matematicas puedes matricular
+                 <primer, 1> matematica generales, etc
+                 <segundo, 2> Calculo I, Algebra lineal, pensamiento matemático etc
+                 <tercer, 3>  Calculo II, programcion basica.
+            <Ingeniria fisica, Ing, fisica> En ingenieria fisica puedes matricular
+                 <primer, 1> Calculo I, etc
+                 <segundo, 2> Calculo II, Algebra lineal, pensamiento matemático etc
+                 <tercer, 3>  Calculo III, Electromagnetismo.
 """
 
 SYSTEM_PROMPT=f"""
 Eres el asistente virtual oficial de atención al cliente.
 
 REGLAS DE COMPORTAMIENTO:
-1. Responde a las preguntas del usuario utilizando ÚNICAMENTE la información provista en la siguiente Base de Conocimiento. Verifica si la pregunta se parece y responde.
+1. Responde a las preguntas del usuario utilizando UNICAMENTE la información provista en la siguiente Base de Conocimiento, usa esto para COSTRUIR tus las respuestas. Verifica si la pregunta se parece y responde.
 2. Si la respuesta no se encuentra en la Base de Conocimiento, responde amablemente: "Lo siento, no dispongo de esa información en este momento. Te sugiero contactar directamente a soporte humano."
 3. Sé siempre amable, conciso y profesional.
 4. No inventes ni supongas información que no esté explícitamente escrita abajo.
+5. La informacion tiene el siguiente formato
+    -pregunta: es la pregunta del usuario <aqui vienen las palabras clave, usalas para verificar parecido, utiliza sinimimos y palabras relacionadas, estas palabras las obtines de las respuestas del usuario>
+    -<Palabra clave > contra pregunta: esta es una pregunta deacuerdo a la palabra clave que puedes usar para verificar informacion
+    -respuesta: estas son las respuestas, aqui usas palabras clave para relacionar las preguntas.
+                <palabras clave> respuesta
+                <palabras clave> respuesta  
 
 BASE DE CONOCIMIENTO:
 {BASE_DE_CONOCIMIENTO}
@@ -80,7 +92,7 @@ async def chat_endpoint(payload: MessageRequest):
     try:
         llm = ChatGroq(
             model="llama-3.1-8b-instant",
-            temperature=0.2,
+            temperature=0.4,
             groq_api_key=api_key
         )
         
