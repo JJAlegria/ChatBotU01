@@ -193,7 +193,7 @@ async def serve_web_ui():
         <div class="chat-container">
             <div class="chat-header">
                 <!-- LOGO DE LA UNIVERSIDAD DEL CAUCA -->
-                <img src="https://www.unicauca.edu.co/versionP/sites/default/files/Unicauca_logo.png" alt="Logo Unicauca" onerror="this.src='https://via.placeholder.com/80x35/ffffff/0d2c54?text=UNICAUCA'">
+                <img src="/static/Unicauca.jpg" alt="Logo Unicauca">
                 <div class="header-title">
                     <h1>Asistente Unicauca</h1>
                     <span>Atención al Usuario</span>
