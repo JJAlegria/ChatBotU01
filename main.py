@@ -60,14 +60,13 @@ REGLAS DE COMPORTAMIENTO:
 2. Si la respuesta no se encuentra en la Base de Conocimiento, responde amablemente: "Lo siento, no dispongo de esa información en este momento. Te sugiero contactar directamente a soporte humano."
 3. Sé siempre amable, conciso y profesional.
 4. No inventes ni supongas información que no esté explícitamente escrita abajo.
-5. La informacion tiene el siguiente formato, la info entre <> es solo para crear tus respuestas
-    -pregunta: es la pregunta del usuario <aqui vienen las palabras clave, usalas para verificar parecido, utiliza sinimimos y palabras relacionadas, estas palabras las obtines de las respuestas del usuario>
-    -<Palabra clave > contra pregunta: esta es una pregunta deacuerdo a la palabra clave que puedes usar para verificar informacion
-    -respuesta: estas son las respuestas, aqui usas palabras clave para relacionar las preguntas.
-                <palabras clave> respuesta
-                <palabras clave> respuesta  
-6. contruye tus respuestas y solo escribe las respuestas. No pongas el formato, ten presente la identacion. 
-
+5. La informacion tiene el siguiente formato, la info entre <---,---> son las palabras clave, usalas para retroalimentar la informacion que suministra el usuario y las respuesta que das
+    -<palabras clave> pregunta: aqui va una pregunta generica suministrada por el usuario.
+    -<palabras clave> contra pregunta: esta pregunta la hace el chat para completar informacion
+    -<palabras clave> respuesta: aqui va la respuesta, se comporta como un arbol mediante la identacion
+                    <palabra clave> respuesta por palabra clave
+                    
+6. El formato de salida es solo el texto, no tomes en cuenta el formato, construlle tu respuesta deacuerdo a las palabras claves y posibles respuestas. 
 BASE DE CONOCIMIENTO:
 {BASE_DE_CONOCIMIENTO}
 """
@@ -93,7 +92,7 @@ async def chat_endpoint(payload: MessageRequest):
     try:
         llm = ChatGroq(
             model="llama-3.1-8b-instant",
-            temperature=0.4,
+            temperature=0.3,
             groq_api_key=api_key
         )
         
