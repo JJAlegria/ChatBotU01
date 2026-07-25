@@ -66,7 +66,7 @@ REGLAS DE COMPORTAMIENTO:
     -respuesta: estas son las respuestas, aqui usas palabras clave para relacionar las preguntas.
                 <palabras clave> respuesta
                 <palabras clave> respuesta  
-6. contruye tus respuestas y solo escribe las respuestas. 
+6. contruye tus respuestas y solo escribe las respuestas. No pongas el formato, ten presente la identacion. 
 
 BASE DE CONOCIMIENTO:
 {BASE_DE_CONOCIMIENTO}
