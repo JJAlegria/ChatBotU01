@@ -38,15 +38,15 @@ BASE_DE_CONOCIMIENTO = """
 - Pregunta: ¿Que materias puedo ver el siguiente semestre? <matricular, estudiar>
   Contra pregunta: ¿Que carrera estudias?
   Contra pregunta: ¿Que semestre estas cursando?
-  Respuesta: <matematicas> En matematicas puedes matricular
+  Respuesta: -<matematicas> En matematicas puedes matricular
                  <primer, 1> matematica generales, etc
                  <segundo, 2> Calculo I, Algebra lineal etc
                  <tercer, 3>  Calculo II, programcion basica.
-             <Licenciatura matematica> En licenciatura en matematicas puedes matricular
+             -<Licenciatura matematica> En licenciatura en matematicas puedes matricular
                  <primer, 1> matematica generales, etc
                  <segundo, 2> Calculo I, Algebra lineal, pensamiento matemático etc
                  <tercer, 3>  Calculo II, programcion basica.
-            <Ingeniria fisica, Ing, fisica> En ingenieria fisica puedes matricular
+            -<Ingeniria fisica, Ing, fisica> En ingenieria fisica puedes matricular
                  <primer, 1> Calculo I, etc
                  <segundo, 2> Calculo II, Algebra lineal, pensamiento matemático etc
                  <tercer, 3>  Calculo III, Electromagnetismo.
@@ -75,9 +75,10 @@ FORMATO BASE DE CONOCIMIENTOS:
     -<palabras clave> contra pregunta: esta pregunta la hace el chat para completar informacion
     -<palabras clave> respuesta: aqui va la respuesta, se comporta como un arbol mediante la identacion
                     <palabra clave> respuesta por palabra clave
+6. EL formato respeta las identaciones, respeta las identaciones al leer la información.
 FORMATO RESPUESTA:
 6. Las <palabras clave> estan en las preguntas para que puedas guiarte entre las respuestas. Buscalas en las preguntas y usalas  
-7. El formato de tus respuestas es SOLO texto. NO uses los caracteres "<, >" en tusrepsuestas. EJEMPPLO: En el segundo semestre de ingenieria fisica n el segundo semestre de Ingeniería Física puedes matricular: Calculo II, Algebra lineal
+7. El formato de tus respuestas es SOLO texto. NO uses los caracteres "<, >" en tusrepsuestas. EJEMPPLO: En el segundo semestre de ingenieria fisica puedes matricular: Calculo II, Algebra lineal
 
 BASE DE CONOCIMIENTO:
 {BASE_DE_CONOCIMIENTO}
