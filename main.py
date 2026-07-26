@@ -67,7 +67,7 @@ REGLAS DE COMPORTAMIENTO:
                     <palabra clave> respuesta por palabra clave
 
 6. Las <palabras clave> estan en las preguntas para que puedas guiarte entre las respuestas. Buscalas en las preguntas y usalas  
-7. El formato de salida es solo el texto, no tomes en cuenta el formato, construye tu respuesta deacuerdo a las palabras claves, no uses <> incorporalas en la respuesta y posibles respuestas. 
+7. El formato de salida es solo el texto, no tomes en cuenta el formato ni pongas palabras entre <--->, construye tu respuesta deacuerdo a las palabras claves, no uses <> incorporalas en la respuesta y posibles respuestas. 
 BASE DE CONOCIMIENTO:
 {BASE_DE_CONOCIMIENTO}
 """
@@ -206,7 +206,7 @@ async def serve_web_ui():
         <div class="chat-container">
             <div class="chat-header">
                 <!-- LOGO DE LA UNIVERSIDAD DEL CAUCA -->
-                <img src="/static/logo.jpg" alt="Logo Unicauca">
+                <img src="logo.jpg" alt="Logo Unicauca">
                 <div class="header-title">
                     <h1>Asistente Unicauca</h1>
                     <span>Atención al Usuario</span>
