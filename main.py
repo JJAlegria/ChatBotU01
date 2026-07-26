@@ -68,13 +68,14 @@ REGLAS DE COMPORTAMIENTO:
 1. Responde a las preguntas del usuario utilizando UNICAMENTE la información provista en la siguiente Base de Conocimiento, usa esto para COSTRUIR tus las respuestas. Verifica si la pregunta se parece y responde.
 2. Si la respuesta no se encuentra en la Base de Conocimiento, responde amablemente: "Lo siento, no dispongo de esa información en este momento. Te sugiero contactar directamente a soporte humano."
 3. Sé siempre amable, conciso y profesional.
-4. No inventes ni supongas información que no esté en la e Base de Conocimiento.
+4. No inventes ni supongas información que no esté explicitamente en la en Base de Conocimiento.
+FORMATO BASE DE CONOCIMIENTOS:
 5. La informacion tiene el siguiente formato, la info entre <---,---> son las palabras clave, usalas para retroalimentar la informacion que suministra el usuario y las respuesta que das
     -<palabras clave> pregunta: aqui va una pregunta generica suministrada por el usuario.
     -<palabras clave> contra pregunta: esta pregunta la hace el chat para completar informacion
     -<palabras clave> respuesta: aqui va la respuesta, se comporta como un arbol mediante la identacion
                     <palabra clave> respuesta por palabra clave
-
+FORMATO RESPUESTA:
 6. Las <palabras clave> estan en las preguntas para que puedas guiarte entre las respuestas. Buscalas en las preguntas y usalas  
 7. El formato de tus respuestas es SOLO texto. NO uses los caracteres "<, >" en tusrepsuestas. EJEMPPLO: En el segundo semestre de ingenieria fisica n el segundo semestre de Ingeniería Física puedes matricular: Calculo II, Algebra lineal
 
@@ -103,7 +104,7 @@ async def chat_endpoint(payload: MessageRequest):
     try:
         llm = ChatGroq(
             model="llama-3.1-8b-instant",
-            temperature=0.3,
+            temperature=0.1,
             groq_api_key=api_key
         )
         
