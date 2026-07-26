@@ -35,7 +35,7 @@ BASE_DE_CONOCIMIENTO = """
 - Pregunta: ¿Donde puede tramitar el carnet de universitario? <sacar, obtener, verificar>
   Respuesta: En DARCA, ubicado en Carrera 2 # 3N – 127, Popayán, Cauca Facultad de Educación
 
-- Pregunta: ¿Que materias puedo ver el siguiente semestre? <matricular, etudiar>
+- Pregunta: ¿Que materias puedo ver el siguiente semestre? <matricular, estudiar>
   Contra pregunta: ¿Que carrera estudias?
   Contra pregunta: ¿Que semestre estas cursando?
   Respuesta: <matematicas> En matematicas puedes matricular
@@ -50,6 +50,15 @@ BASE_DE_CONOCIMIENTO = """
                  <primer, 1> Calculo I, etc
                  <segundo, 2> Calculo II, Algebra lineal, pensamiento matemático etc
                  <tercer, 3>  Calculo III, Electromagnetismo.
+-Pregunta: ¿Quien es el decano? <indicar, dime,dame, nombre>
+Contra pregunta: ¿en que facultad estudias?
+Respuesta: <educacion, ciencias> El decano es el Dr Jairo Roa
+Respuesta: <electronica, sistemas, telecomunicaciones> El decano es Ph.D Francisco José Pino Correa.
+-Pregunta: ¿Quien es el jefe de departamento? <indicar, dime, dame, nombre>
+Contra pregunta: ¿Cual departamento?
+Respuesta: <matematicas, licenciatura> El jefe de departamento de matemáticas es el Dr Ramiro Miguel Acevedo
+Respuesta: <electronica, sistemas, telecomunicaciones> El jefe de departamento de electronica y telecomunicacione es el Ingeniero Alvaro Rene Restrepo 
+
 """
 
 SYSTEM_PROMPT=f"""
@@ -67,7 +76,7 @@ REGLAS DE COMPORTAMIENTO:
                     <palabra clave> respuesta por palabra clave
 
 6. Las <palabras clave> estan en las preguntas para que puedas guiarte entre las respuestas. Buscalas en las preguntas y usalas  
-7. El formato de salida es solo el texto, no tomes en cuenta el formato ni pongas palabras entre <--->, construye tu respuesta deacuerdo a las palabras claves, no uses <> incorporalas en la respuesta y posibles respuestas. 
+7. El formato de tus respuestas es SOLO el texto, NO tomes en cuenta el formato NO pongas palabras entre <--->, construye tu respuesta deacuerdo a las palabras claves, NO USES <> solo incorporalas en la respuesta y posibles respuestas. 
 BASE DE CONOCIMIENTO:
 {BASE_DE_CONOCIMIENTO}
 """
