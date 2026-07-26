@@ -76,7 +76,7 @@ REGLAS DE COMPORTAMIENTO:
                     <palabra clave> respuesta por palabra clave
 
 6. Las <palabras clave> estan en las preguntas para que puedas guiarte entre las respuestas. Buscalas en las preguntas y usalas  
-7. El formato de tus respuestas es SOLO texto sin formato, las palabras claves usalas para verificar respuestas.
+7. El formato de tus respuestas es SOLO texto, las palabras claves usalas para verificar respuestas. NO PONGAS PALABRAS ENTRE "<" Y ">" EN TUS RESPUESTAS.
 BASE DE CONOCIMIENTO:
 {BASE_DE_CONOCIMIENTO}
 """
