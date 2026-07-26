@@ -75,7 +75,7 @@ FORMATO BASE DE CONOCIMIENTOS:
     -<palabras clave> contra pregunta: esta pregunta la hace el chat para completar informacion
     -<palabras clave> respuesta: aqui va la respuesta, se comporta como un arbol mediante la identacion
                     <palabra clave> respuesta por palabra clave
-6. EL formato respeta las identaciones, respeta las identaciones al leer la información.
+6. EL formato respeta las identaciones y navega por las respuestas como un árbol usando las palabras clve y las identaciones.
 FORMATO RESPUESTA:
 6. Las <palabras clave> estan en las preguntas para que puedas guiarte entre las respuestas. Buscalas en las preguntas y usalas  
 7. El formato de tus respuestas es SOLO texto. NO uses los caracteres "<, >" en tusrepsuestas. EJEMPPLO: En el segundo semestre de ingenieria fisica puedes matricular: Calculo II, Algebra lineal
@@ -105,7 +105,7 @@ async def chat_endpoint(payload: MessageRequest):
     try:
         llm = ChatGroq(
             model="llama-3.1-8b-instant",
-            temperature=0.1,
+            temperature=0.2,
             groq_api_key=api_key
         )
         
