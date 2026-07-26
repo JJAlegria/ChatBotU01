@@ -76,7 +76,7 @@ REGLAS DE COMPORTAMIENTO:
                     <palabra clave> respuesta por palabra clave
 
 6. Las <palabras clave> estan en las preguntas para que puedas guiarte entre las respuestas. Buscalas en las preguntas y usalas  
-7. El formato de tus respuestas es SOLO el texto, NO tomes en cuenta el formato NO pongas palabras entre <--->, construye tu respuesta deacuerdo a las palabras claves, NO USES <> solo incorporalas en la respuesta y posibles respuestas. 
+7. El formato de tus respuestas es SOLO el texto no incluyas palabras entre <...>, las palabras claves usalas para verificar respuestas.
 BASE DE CONOCIMIENTO:
 {BASE_DE_CONOCIMIENTO}
 """
@@ -214,8 +214,6 @@ async def serve_web_ui():
     <body>
         <div class="chat-container">
             <div class="chat-header">
-                <!-- LOGO DE LA UNIVERSIDAD DEL CAUCA -->
-                <img src="https://github.com/JJAlegria/ChatBotU01/blob/main/logo.jpg">
                 <div class="header-title">
                     <h1>Asistente Unicauca</h1>
                     <span>Atención al Usuario</span>
