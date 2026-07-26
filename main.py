@@ -26,7 +26,7 @@ app.add_middleware(
 
 # 3. Base de Conocimiento y Prompt de Sistema
 BASE_DE_CONOCIMIENTO = """
-- Pregunta: ¿Cuáles son los horarios de atención? <hora, abrir>
+-Pregunta: ¿Cuáles son los horarios de atención? <hora, abrir>
   Respuesta: Atendemos de lunes a viernes de 8:00 AM a 6:00 PM.
 
 - Pregunta: ¿Dónde están ubicados? <lugar, estan, encontrar, ubicar, localizar>
@@ -35,18 +35,21 @@ BASE_DE_CONOCIMIENTO = """
 - Pregunta: ¿Donde puede tramitar el carnet de universitario? <sacar, obtener, verificar>
   Respuesta: En DARCA, ubicado en Carrera 2 # 3N – 127, Popayán, Cauca Facultad de Educación
 
-- Pregunta: ¿Que materias puedo ver el siguiente semestre? <matricular, estudiar>
-  Contra pregunta: ¿Que carrera estudias?
+- Pregunta: ¿Que materias puedo matricular en el semestre X de matematicas? <matricular, estudiar>
   Contra pregunta: ¿Que semestre estas cursando?
-  Respuesta: -<matematicas> En matematicas puedes matricular
+  Respuesta: <matematicas> En matematicas puedes matricular
                  <primer, 1> matematica generales, etc
                  <segundo, 2> Calculo I, Algebra lineal etc
                  <tercer, 3>  Calculo II, programcion basica.
-             -<Licenciatura matematica> En licenciatura en matematicas puedes matricular
+-Pregunta: ¿Que materias puedo matricular en el semestre X de Licenciatura matematicas? <matricular, estudiar, lic, ver>
+  Contra pregunta: ¿Que semestre estas cursando?
+             <Licenciatura, lic, matematica> En licenciatura en matematicas puedes matricular
                  <primer, 1> matematica generales, etc
                  <segundo, 2> Calculo I, Algebra lineal, pensamiento matemático etc
                  <tercer, 3>  Calculo II, programcion basica.
-            -<Ingeniria fisica, Ing, fisica> En ingenieria fisica puedes matricular
+-Pregunta: ¿Que materias puedo matricular en el semestre X de ingenieria fisica? <matricular, estudiar, ing, ver>
+  Contra pregunta: ¿Que semestre estas cursando?
+            <Ingeniria fisica, Ing, fisica> En ingenieria fisica puedes matricular
                  <primer, 1> Calculo I, etc
                  <segundo, 2> Calculo II, Algebra lineal, pensamiento matemático etc
                  <tercer, 3>  Calculo III, Electromagnetismo.
@@ -74,8 +77,6 @@ FORMATO BASE DE CONOCIMIENTOS:
     -<palabras clave> pregunta: aqui va una pregunta generica suministrada por el usuario.
     -<palabras clave> contra pregunta: esta pregunta la hace el chat para completar informacion
     -<palabras clave> respuesta: aqui va la respuesta, se comporta como un arbol mediante la identacion
-                    <palabra clave> respuesta por palabra clave
-6. EL formato respeta las identaciones y navega por las respuestas como un árbol usando las palabras clve y las identaciones.
 FORMATO RESPUESTA:
 6. Las <palabras clave> estan en las preguntas para que puedas guiarte entre las respuestas. Buscalas en las preguntas y usalas  
 7. El formato de tus respuestas es SOLO texto. NO uses los caracteres "<, >" en tusrepsuestas. EJEMPPLO: En el segundo semestre de ingenieria fisica puedes matricular: Calculo II, Algebra lineal
