@@ -26,41 +26,41 @@ app.add_middleware(
 
 # 3. Base de Conocimiento y Prompt de Sistema
 BASE_DE_CONOCIMIENTO = """
--Pregunta: ¿Cuáles son los horarios de atención? <hora, abrir>
+Pregunta: ¿Cuáles son los horarios de atención? <hora, abrir>
   Respuesta: Atendemos de lunes a viernes de 8:00 AM a 6:00 PM.
 
-- Pregunta: ¿Dónde están ubicados? <lugar, estan, encontrar, ubicar, localizar>
+- Pregunta: ¿Dónde están ubicados? <lugar, están, encontrar, ubicar, localizar>
   Respuesta: Estamos ubicados en Cl 5 #4-70, Centro, Popayán.
 
-- Pregunta: ¿Donde puede tramitar el carnet de universitario? <sacar, obtener, verificar>
-  Respuesta: En DARCA, ubicado en Carrera 2 # 3N – 127, Popayán, Cauca Facultad de Educación
+- Pregunta: ¿Dónde se puede tramitar el carné de universitario? <sacar, obtener, verificar>
+  Respuesta: En DARCA, ubicado en la Carrera 2 # 3N – 127, Popayán, Cauca, Facultad de Educación.
 
-- Pregunta: ¿Que materias puedo matricular en el semestre X de matematicas? <matricular, estudiar>
-  Contra pregunta: ¿Que semestre estas cursando?
-  Respuesta: <matematicas> En matematicas puedes matricular
-                 <primer, 1> matematica generales, etc
-                 <segundo, 2> Calculo I, Algebra lineal etc
-                 <tercer, 3>  Calculo II, programcion basica.
--Pregunta: ¿Que materias puedo matricular en el semestre X de Licenciatura matematicas? <matricular, estudiar, lic, ver>
-  Contra pregunta: ¿Que semestre estas cursando?
-             <Licenciatura, lic, matematica> En licenciatura en matematicas puedes matricular
-                 <primer, 1> matematica generales, etc
-                 <segundo, 2> Calculo I, Algebra lineal, pensamiento matemático etc
-                 <tercer, 3>  Calculo II, programcion basica.
--Pregunta: ¿Que materias puedo matricular en el semestre X de ingenieria fisica? <matricular, estudiar, ing, ver>
-  Contra pregunta: ¿Que semestre estas cursando?
-            <Ingeniria fisica, Ing, fisica> En ingenieria fisica puedes matricular
-                 <primer, 1> Calculo I, etc
-                 <segundo, 2> Calculo II, Algebra lineal, pensamiento matemático etc
-                 <tercer, 3>  Calculo III, Electromagnetismo.
--Pregunta: ¿Quien es el decano? <indicar, dime,dame, nombre>
-Contra pregunta: ¿en que facultad estudias?
-Respuesta: <educacion, ciencias> El decano es el Dr Jairo Roa
-Respuesta: <electronica, sistemas, telecomunicaciones> El decano es Ph.D Francisco José Pino Correa.
--Pregunta: ¿Quien es el jefe de departamento? <indicar, dime, dame, nombre>
-Contra pregunta: ¿Cual departamento?
-Respuesta: <matematicas, licenciatura> El jefe de departamento de matemáticas es el Dr Ramiro Miguel Acevedo
-Respuesta: <electronica, sistemas, telecomunicaciones> El jefe de departamento de electronica y telecomunicacione es el Ingeniero Alvaro Rene Restrepo 
+- Pregunta: ¿Qué materias puedo matricular en el semestre X de matemáticas? <matricular, estudiar>
+  Contra pregunta: ¿Qué semestre estás cursando?
+  Respuesta: <matemáticas> En matemáticas puedes matricular
+                 <primer, 1> matemáticas generales, etc.
+                 <segundo, 2> Cálculo I, Álgebra lineal, etc.
+                 <tercer, 3>  Cálculo II, programación básica.
+-Pregunta: ¿Qué materias puedo matricular en el semestre X de Licenciatura en Matemáticas? <matricular, estudiar, lic, ver>
+  Contra pregunta: ¿Qué semestre estás cursando?
+             <Licenciatura, lic, matemática> En Licenciatura en Matemáticas puedes matricular
+                 <primer, 1> matemáticas generales, etc.
+                 <segundo, 2> Cálculo I, Álgebra lineal, pensamiento matemático, etc.
+                 <tercer, 3>  Cálculo II, programación básica.
+-Pregunta: ¿Qué materias puedo matricular en el semestre X de Ingeniería Física? <matricular, estudiar, ing, ver>
+  Contra pregunta: ¿Qué semestre estás cursando?
+            <Ingeniería física, Ing, física> En Ingeniería Física puedes matricular
+                 <primer, 1> Cálculo I, etc.
+                 <segundo, 2> Cálculo II, Álgebra lineal, pensamiento matemático, etc.
+                 <tercer, 3>  Cálculo III, Electromagnetismo.
+-Pregunta: ¿Quién es el decano? <indicar, dime, dame, nombre>
+Contra pregunta: ¿En qué facultad estudias?
+Respuesta: <educación, ciencias> El decano es el Dr. Jairo Roa.
+Respuesta: <electrónica, sistemas, telecomunicaciones> El decano es el Ph. D. Francisco José Pino Correa.
+-Pregunta: ¿Quién es el jefe de departamento? <indicar, dime, dame, nombre>
+Contra pregunta: ¿Cuál departamento?
+Respuesta: <matemáticas, licenciatura> El jefe del departamento de Matemáticas es el Dr. Ramiro Miguel Acevedo.
+Respuesta: <electrónica, sistemas, telecomunicaciones> El jefe del departamento de Electrónica y Telecomunicaciones es el Ingeniero Álvaro René Restrepo.
 
 """
 
